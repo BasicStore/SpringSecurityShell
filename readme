@@ -1,0 +1,54 @@
+SPRING SECURITY
+Handles security within a web app from sign in to log off with OOB functionality
+
+-----------------------------------------------------------------------------
+
+REQUIRED COMPONENTS:
+
+- view resolver
+
+- extend WebSecurityConfigurerAdapter to define a user and specify which actions are to be secured 
+
+- login.html (with error and logout params for returning to this page with an error / or as signed out)
+  the login form nominally forwards to itself, but the framework understands this is to be forwarded to the original action
+  
+- provide a means of signing out, see hello.html
+  note the use of framework variable 'httpServletRequest.remoteUser' to get the user name
+
+
+Links to build app from scratch:
+https://start.spring.io/
+https://spring.io/guides/gs/securing-web/
+
+
+FLOW (all with annotations and no actions):
+Home => Hello
+Home => login ==> Hello
+
+RUN:
+http://localhost:8080/
+http://localhost:8080/home
+
+-----------------------------------------------------------------------------
+Research user roles:
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------
+JOBS:
+
+- experiment with user roles
+  --> what user roles are there? 
+  --> can this all be configured?
+    
+- add to app(s)
+
+-----------------------------------------------------------------------------
+
+
