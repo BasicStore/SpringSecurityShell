@@ -1,5 +1,9 @@
-SPRING SECURITY
-Handles security within a web app from sign in to log off with OOB functionality
+
+SPRING SECURITY APP
+
+Handles security within a web app from sign in to log off with OOB functionality.
+Includes a bespoke login page.
+No distinction between roles beyond generic authorization.
 
 -----------------------------------------------------------------------------
 
@@ -28,17 +32,6 @@ Home => login ==> Hello
 RUN:
 http://localhost:8080/
 http://localhost:8080/home
-
------------------------------------------------------------------------------
-Research user roles:
-
-
-
-
-
-
-
-
 
 -----------------------------------------------------------------------------
 JOBS:
