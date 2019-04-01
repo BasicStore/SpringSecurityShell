@@ -4,9 +4,12 @@
     <head>
         <title>Hello World!</title>
     </head>
-    <body>
+    <body>         <!-- this line retreives the user from the entered credentials-->
         <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-        <form th:action="@{/logout}" method="post">
+        
+                
+        <!-- logout seems to be an OOB action, there is no logout action, redirects automatically to login?logout -->
+        <form th:action="@{/logout}" method="post">   
             <input type="submit" value="Sign Out"/>
         </form>
     </body>

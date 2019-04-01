@@ -13,28 +13,21 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    
-	@Override
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
-        
-		http.authorizeRequests()
-                .antMatchers("/", "/home").permitAll()  // configured for / or home to require no configuration
-                .anyRequest().authenticated()           // all other paths no mention in the antMatchers must be authenticated (test this)
+        http
+            .authorizeRequests()
+                .antMatchers("/", "/home").permitAll()
+                .anyRequest().authenticated() // any request with / or /home (ie. all of them), means it must get authenticated
                 .and()
             .formLogin()
-                .loginPage("/login")  // rerouted to login page (the login controller exists within the spring security framework)
-                .permitAll()          // the login controller returns this page with either login?error or login?logout in URL if there is a problem
-                .and()                // (see thyme conditional)
-            .logout()
-                .permitAll(); // routes directly to login page (logout)
+                .loginPage("/login")  // directs to a login form page
+                .permitAll()          // once past the login, all actions are fine
+                .and()
+            .logout()                 // implcitily the same with logging out, although there is no logout action 
+                .permitAll();
     }
 
-	
-//	We display the username by using Spring Security’s integration with HttpServletRequest#getRemoteUser(). 
-//	The "Sign Out" form submits a POST to "/logout". 
-//	Upon successfully logging out it will redirect the user to "/login?logout".
-	
-	
     @Bean
     @Override
     public UserDetailsService userDetailsService() {
@@ -47,5 +40,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         return new InMemoryUserDetailsManager(user);
     }
-    
 }
