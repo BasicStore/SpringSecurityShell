@@ -29,6 +29,11 @@ FLOW (all with annotations and no actions):
 Home => Hello
 Home => login ==> Hello
 
+
+CREDENTIALS:
+config specifies 'user'/'password'
+
+
 RUN:
 http://localhost:8080/
 http://localhost:8080/home
