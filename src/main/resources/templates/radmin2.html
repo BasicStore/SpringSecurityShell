@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Example</title>
+    </head>
+    <body>
+        <h1>Welcome! Admin area </h1>
+        
+        <h1 th:inline="text">Hello Admin 2 [[${#httpServletRequest.remoteUser}]]!</h1>        
+                
+        <!-- logout seems to be an OOB action, there is no logout action, redirects automatically to login?logout -->
+        <form th:action="@{/logout}" method="post">   
+            <input type="submit" value="Sign Out"/>
+        </form>
+        
+        
+        <p>Click <a th:href="@{/admin}">here</a> to go back to main admin page</p>
+        
+        
+    </body>
+</html>
+
+

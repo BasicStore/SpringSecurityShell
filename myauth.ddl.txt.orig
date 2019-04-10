@@ -1,0 +1,82 @@
+DDL setup:  
+
+https://www.youtube.com/watch?v=egXtoL5Kg08
+
+1) create database in MySQL
+2) leave table ddl to hibernate (ignore below)
+3) leave inital dml to hibernate (see application.properties file for mention of data.sql)
+
+-----------------------------------------------------------
+table user
+user_id, email, password, last_name, active
+
+CREATE TABLE user (
+    user_id INT(11),
+    email VARCHAR(40),
+    password VARCHAR(20),
+    name VARCHAR(40),
+    last_name VARCHAR(40),
+    active TINYINT(4)
+); 
+
+
+-----------------------------------------------------------
+table role
+role_id, role
+
+CREATE TABLE role (
+    role_id TINYINT(4),
+    role VARCHAR(20)
+); 
+
+-----------------------------------------------------------
+table user_roles
+
+CREATE TABLE user_role (
+    user_id INT(11),
+    role_id TINYINT(4)
+); 
+
+
+-----------------------------------------------------------
+
+select u.*, r.role
+from user u
+inner join user_role ur on ur.user_id = u.user_id
+inner join role r on ur.roles_role_id = r.role_id
+
+-----------------------------------------------------------
+
+insert into user (user_id, email, password, name, last_name, active) values(1, 'email@sadf.com', 'GrahamD1ll3y!', 'dilley', 'lastname', 1);
+insert into role values(1, 'ADMIN');
+insert into user_role values(1, 1);
+
+-----------------------------------------------------------
+
+drop table user_roles;
+drop table role;
+drop table user;
+drop table hibernate_sequence;
+
+-----------------------------------------------------------
+
+
+<<<<<<< HEAD
+=======
+
+
+javax.servlet.ServletException: Circular view path [login]: would dispatch back to the current handler URL [/login] again. 
+ 
+
+Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
+
+
+
+
+
+
+
+
+
+
+>>>>>>> masternot
